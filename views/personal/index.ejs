@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contacts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="container">
+  <h2> Contacts </h2>
+  <form action="/personal/add">
+    <button> Add Contact </button>
+  </form>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> User ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone No.</th>
+        <th>Address</th>
+        <th>Birthday</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% personal.forEach(function(user){ %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone_no %></td>
+                <td><%= user.address %></td>
+                <td><%= user.birthday %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+  </table>
+  <br>
+  <br>
+
+  <form action="/personal/edit/:userId">
+    <input type="text" placeholder="Enter user ID to EDIT" name="userID" required>
+    <button type="submit"> Edit Contact </button>
+  </form>
+
+  <form action="/personal/delete/:userId">
+    <input type="text" placeholder="Enter user ID to DELETE" name="userID" required>
+    <button type="submit"> Delete Contact </button>  
+  </form>
+</div>
+
+</body>
+</html>
