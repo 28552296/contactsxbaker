@@ -4,7 +4,7 @@ const SQL_CONNECTION = MYSQL.createConnection({
     host:'localhost',
     user:'root',
     password:'password',
-    database:'contactsdb'
+    database:'contactlistdb'
 });
 
 SQL_CONNECTION.connect(function(error){
