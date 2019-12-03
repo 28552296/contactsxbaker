@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contacts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="container">
+  <h2>Contacts</h2>
+
+  <form action="business/add">
+    <button> Add Contact </button>
+  </form>
+  <br>
+  <br>
+
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Email 2</th>
+        <th>Phone No.</th>
+        <th>Phone No. 2</th>
+        <th>Address</th>
+        <th>Address 2</th>
+        <th>VAT no.</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% business.forEach(function(user){ %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.email2 %></td>
+                <td><%= user.phone_no %></td>
+                <td><%= user.phone_no2 %></td>
+                <td><%= user.address %></td>
+                <td><%= user.address2 %></td>
+                <td><%= user.vat %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+  </table>
+  <br>
+  <br>
+
+  <form action="/business/edit/:userId">
+    <input type="text" placeholder="Enter user ID to edit" name="userID" required>
+    <button type="submit"> Edit Contact </button>
+  </form>
+
+  <form action="/business/delete/:userId">
+    <input type="text" placeholder="Enter user ID to delete" name="userID" required>
+    <button type="submit"> Delete Contact </button>
+  </form>
+</div>
+
+</body>
+</html>
